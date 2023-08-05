@@ -3,7 +3,9 @@ from qa_guru_lesson_10.pages.registration_pages import RegistrationPage
 from qa_guru_lesson_10.resource import first_name, last_name, user_email
 
 
-def test_registration_user():
+@allure.title("Successful fill form")
+def test_registration_user(browser_management):
+    browser = browser_management
     registration_page = RegistrationPage()
 
     test_user = User(
@@ -21,6 +23,11 @@ def test_registration_user():
         city='Lucknow'
     )
 
-    registration_page.open_page()
-    registration_page.register_user(test_user)
-    registration_page.sshould_have_registered(test_user)
+    with allure.step("Open registrations form"):
+        registration_page.open_page()
+
+    with allure.step("Fill form"):
+        registration_page.register_user(test_user)
+
+    with allure.step("Check form results"):
+        registration_page.sshould_have_registered(test_user)
