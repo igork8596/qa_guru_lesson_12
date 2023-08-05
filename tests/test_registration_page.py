@@ -6,7 +6,7 @@ from qa_guru_lesson_10.resource import first_name, last_name, user_email
 
 @allure.title("Successful fill form")
 def test_registration_user(browser_management):
-    browser = browser_management
+    # browser = browser_management
     registration_page = RegistrationPage()
 
     test_user = User(
