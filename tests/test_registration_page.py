@@ -1,3 +1,4 @@
+import allure
 from models.user import User
 from qa_guru_lesson_10.pages.registration_pages import RegistrationPage
 from qa_guru_lesson_10.resource import first_name, last_name, user_email
